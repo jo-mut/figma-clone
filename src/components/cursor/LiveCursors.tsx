@@ -6,7 +6,7 @@ import Cursor from './cursor';
 const LiveCursors = ({ others }: LiveCursorProps) => {
   return others.map(({ connectionId, presence }) => {
     if (!presence?.cursor) return null;
-    console.log(presence)
+    console.log("other presence", presence.message)
     return (
       <Cursor
         key={connectionId}
