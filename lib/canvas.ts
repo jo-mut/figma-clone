@@ -6,21 +6,21 @@ import {
   CanvasMouseMove,
   CanvasMouseUp,
   CanvasObjectModified,
-  CanvasObjectScaling,
   CanvasPathCreated,
   CanvasSelectionCreated,
   RenderCanvas,
-} from "@/types/type";
-import { defaultNavElement } from "@/constants";
+  CanvasObjectScaling
+} from "../types/type";
 import { createSpecificShape } from "./shapes";
+import { defaultNavElement } from "../constants";
 
 // initialize fabric canvas
 export const initializeFabric = ({
   fabricRef,
   canvasRef,
 }: {
-  fabricRef: React.MutableRefObject<fabric.Canvas | null>;
-  canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
+  fabricRef: React.RefObject<fabric.Canvas | null>;
+  canvasRef: React.RefObject<HTMLCanvasElement | null>;
 }) => {
   // get canvas element
   const canvasElement = document.getElementById("canvas");

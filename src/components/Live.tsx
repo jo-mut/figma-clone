@@ -9,7 +9,11 @@ import { stat } from 'fs';
 import FlyingReaction from './reaction/flyingReaction';
 import useInterval from '../../hooks/useInterval';
 
-const Live = () => {
+type LiveProps = {
+    canvasRef: React.RefObject<HTMLCanvasElement | null>
+}
+
+const Live = ({ canvasRef }: LiveProps) => {
     const others = useOthers();
     const [{ cursor }, updateMyPresence] = useMyPresence() as any;
     const [cursorState, setCursorState] = useState<CursorState>({
@@ -130,11 +134,14 @@ const Live = () => {
 
     return (
         <div
+            id="canvas"
             onPointerMove={handlePointerMove}
             onPointerDown={handlePointerDown}
             onPointerLeave={handlePointerLeave}
             onPointerUp={handlePointerUp}
             className='h-[100vh] w-full justify-center items-center border-white border-2'>
+
+            <canvas ref={canvasRef} />
 
             {reactions.map((r: any) => (
                 <FlyingReaction
