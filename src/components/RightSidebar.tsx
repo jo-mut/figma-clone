@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Dimensions from './settings/Dimensions'
 import Export from './settings/Export'
 import Color from './settings/Color'
@@ -14,6 +14,7 @@ function RightSidebar({
     fabricRef,
     isEditingRef
 }: RightSidebarProps) {
+    const [colorInputRef, setColorInputRef] = useState();
 
     const handleInputChange = (property: string, value: string) => {
         if (!isEditingRef.current) isEditingRef.current = true;
@@ -46,9 +47,23 @@ function RightSidebar({
                 height={elementAttributes.height}
                 isEditingRef={isEditingRef}
                 handleInputChange={handleInputChange} />
-            <Text />
-            <Color />
-            <Color />
+            <Text
+                fontFamily={elementAttributes.fontFamily}
+                fontSize={elementAttributes.fontSize}
+                fontWeight={elementAttributes.fontWeight}
+                handleInputChange={handleInputChange} />
+            <Color
+                attribute={elementAttributes.fill}
+                placeholder='color'
+                attributeType='fill'
+                handleInputChange={handleInputChange}
+                inputRef={colorInputRef} />
+            <Color
+                attribute={elementAttributes.stroke}
+                placeholder='stroke'
+                attributeType='stroke'
+                handleInputChange={handleInputChange}
+                inputRef={colorInputRef} />
             <Export />
         </div>
     )
