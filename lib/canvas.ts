@@ -343,7 +343,8 @@ export const renderCanvas = ({
   // clear canvas
   fabricRef.current?.clear();
 
-  // render all objects on canvas
+  if (canvasObjects != null) {
+     // render all objects on canvas
   Array.from(canvasObjects, ([objectId, objectData]) => {
     /**
      * enlivenObjects() is used to render objects on canvas.
@@ -377,6 +378,7 @@ export const renderCanvas = ({
       "fabric"
     );
   });
+  }
 
   fabricRef.current?.renderAll();
 };
