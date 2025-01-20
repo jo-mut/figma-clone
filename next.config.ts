@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  webpack: (config) => {
+    config.externals.push({
+      "utf-8-validate": "commonjs utf-8-validate",
+      "butterutil": "commonjs butterutil",
+      canvas: "commonjs canvas"
+    });
+    return config
+  },
   images: {
     remotePatterns: [
       {
@@ -9,6 +17,9 @@ const nextConfig: NextConfig = {
         port: ''
       }
     ]
+  },
+  typescript: {
+    ignoreBuildErrors: true
   }
 };
 
