@@ -1,7 +1,6 @@
 import { useBroadcastEvent, useEventListener, useMyPresence, useOthers } from '@liveblocks/react'
 import React, { useCallback, useEffect, useState } from 'react'
 import LiveCursors from './cursor/LiveCursors';
-import Cursor from './cursor/cursor';
 import CursorChat from './cursor/CursorChat';
 import { CursorMode, CursorState, Reaction, ReactionEvent } from '../../types/type';
 import ReactionSelector from './reaction/reactionButton';

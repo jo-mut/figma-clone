@@ -1,7 +1,7 @@
 import React from 'react'
 import { LiveCursorProps } from '../../../types/type'
 import { COLORS } from '../../../constants';
-import Cursor from './cursor';
+import Cursor from './Cursor';
 
 const LiveCursors = ({ others }: LiveCursorProps) => {
   return others.map(({ connectionId, presence }) => {
