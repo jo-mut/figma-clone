@@ -3,15 +3,13 @@
 import { useCallback, useRef } from "react";
 import { ThreadData } from "@liveblocks/client";
 
-// import { ThreadMetadata, useEditThreadMetadata, useThreads, useUser } from "@/liveblocks.config";
 
 import { PinnedThread } from "./PinnedThread";
+import { useEditThreadMetadata, useThreads, useUser } from "@liveblocks/react/suspense";
 import { useMaxZIndex } from "../../../lib/useMaxZIndex";
-import { useEditThreadMetadata } from "@liveblocks/react";
-import { useThreads, useUser } from "@liveblocks/react/suspense";
 
 type OverlayThreadProps = {
-  thread: ThreadData
+  thread: ThreadData;
   maxZIndex: number;
 };
 
@@ -22,10 +20,11 @@ export const CommentsOverlay = () => {
    *
    * useThreads: https://liveblocks.io/docs/api-reference/liveblocks-react#useThreads
    */
-  const { threads } = useThreads();
+  const { threads } = useThreads()
 
   // get the max z-index of a thread
   const maxZIndex = useMaxZIndex()
+  console.log("current thread", threads)
 
   return (
     <div>
@@ -45,7 +44,7 @@ const OverlayThread = ({ thread, maxZIndex }: OverlayThreadProps) => {
    *
    * useEditThreadMetadata: https://liveblocks.io/docs/api-reference/liveblocks-react#useEditThreadMetadata
    */
-  const editThreadMetadata = useEditThreadMetadata();
+  const editThreadMetadata = useEditThreadMetadata()
 
   /**
    * We're using the useUser hook to get the user of the thread.

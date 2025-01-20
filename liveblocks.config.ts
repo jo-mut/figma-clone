@@ -30,15 +30,18 @@ declare global {
 
     // Custom events, for useBroadcastEvent, useEventListener
     RoomEvent: {};
-      // Example has two events, using a union
-      // | { type: "PLAY" } 
-      // | { type: "REACTION"; emoji: "🔥" };
+    // Example has two events, using a union
+    // | { type: "PLAY" } 
+    // | { type: "REACTION"; emoji: "🔥" };
 
-    // Custom metadata set on threads, for useThreads, useCreateThread, etc.
+    // Optionally, when using Comments, ThreadMetadata represents metadata on
+    // each thread. Can only contain booleans, strings, and numbers.
     ThreadMetadata: {
-      // Example, attaching coordinates to a thread
-      // x: number;
-      // y: number;
+      resolved: boolean;
+      zIndex: number;
+      time?: number;
+      x: number;
+      y: number;
     };
 
     // Custom room info set with resolveRoomsInfo, for useRoomInfo
@@ -50,4 +53,4 @@ declare global {
   }
 }
 
-export {};
+export { };
