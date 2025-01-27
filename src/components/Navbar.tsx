@@ -16,13 +16,15 @@ const Navbar = ({ activeElement, handleActiveElement, imageInputRef, handleImage
         (Array.isArray(value) && value.some((val) => val?.value === activeElement?.value));
     return (
         <nav
-            className="flex select-none items-center justify-between 
-            gap-4 bg-primary-black px-5 text-white">
-            <Image
+            className="flex select-none items-center 
+            gap-4 bg-primary-black px-5 text-white ">
+            {/* <Image
                 src="/assets/logo.svg"
-                alt="FigPro Logo"
+                alt="Dezaino"
                 width={58}
-                height={20} />
+                height={20} /> */}
+
+            <p className="font-bold font-4xl mr-20">Dezaino</p>
 
             {navElements.map((item: ActiveElement | any) => (
                 <li
@@ -31,7 +33,7 @@ const Navbar = ({ activeElement, handleActiveElement, imageInputRef, handleImage
                         if (Array.isArray(item?.value)) return;
                         handleActiveElement(item);
                     }}
-                    className={`group px-2.5 py-5 flex justify-center items-center
+                    className={`grouppx-2.5 py-5 flex justify-center items-center
                 ${isActive(item?.value) ? "bg-primary-green" : "hover:bg-primary-grey-200"}`}>
                     {Array.isArray(item?.value) ? (
                         <ShapesMenu
@@ -65,7 +67,7 @@ const Navbar = ({ activeElement, handleActiveElement, imageInputRef, handleImage
             ))
             }
 
-            <ActiveUsers />
+            <ActiveUsers /> 
         </nav >
     );
 };
