@@ -3,9 +3,9 @@ import React, { useCallback, useEffect, useState } from 'react'
 import LiveCursors from './cursor/LiveCursors';
 import CursorChat from './cursor/CursorChat';
 import { CursorMode, CursorState, Reaction, ReactionEvent } from '../../types/type';
-import ReactionSelector from './reaction/reactionButton';
+import ReactionSelector from './reaction/ReactionButton';
 import { stat } from 'fs';
-import FlyingReaction from './reaction/flyingReaction';
+import FlyingReaction from './reaction/FlyingReaction';
 import useInterval from '../../hooks/useInterval';
 import {
     ContextMenu,
