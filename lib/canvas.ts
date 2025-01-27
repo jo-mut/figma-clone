@@ -22,8 +22,9 @@ export const initializeFabric = ({
   fabricRef: React.RefObject<fabric.Canvas | null>;
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
 }) => {
-  // get canvas element
-  const canvasElement = document.getElementById("canvas");
+  // // get canvas element
+  // const canvasElement = document.getElementById("canvas");
+  const canvasElement = canvasRef.current;
 
   // create fabric canvas
   const canvas = new fabric.Canvas(canvasRef.current, {
