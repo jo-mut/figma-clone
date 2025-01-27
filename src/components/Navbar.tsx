@@ -18,56 +18,54 @@ const Navbar = ({ activeElement, handleActiveElement, imageInputRef, handleImage
         <nav
             className="flex select-none items-center 
             gap-4 bg-primary-black px-5 text-white ">
-            {/* <Image
-                src="/assets/logo.svg"
-                alt="Dezaino"
-                width={58}
-                height={20} /> */}
 
             <p className="font-bold font-4xl mr-20">Dezaino</p>
 
-            {navElements.map((item: ActiveElement | any) => (
-                <li
-                    key={item?.name}
-                    onClick={() => {
-                        if (Array.isArray(item?.value)) return;
-                        handleActiveElement(item);
-                    }}
-                    className={`grouppx-2.5 py-5 flex justify-center items-center
+            <ul className="flex">
+                {navElements.map((item: ActiveElement | any) => (
+                    <li
+                        key={item?.name}
+                        onClick={() => {
+                            if (Array.isArray(item?.value)) return;
+                            handleActiveElement(item);
+                        }}
+                        className={`group px-2.5 py-5 flex justify-center items-center
                 ${isActive(item?.value) ? "bg-primary-green" : "hover:bg-primary-grey-200"}`}>
-                    {Array.isArray(item?.value) ? (
-                        <ShapesMenu
-                            item={item}
-                            imageInputRef={imageInputRef}
-                            handleImageUpload={handleImageUpload}
-                            handleActiveElement={handleActiveElement}
-                            activeElement={activeElement} />
-                    ) : item?.value === "comments" ? (
-                        <NewThread>
+                        {Array.isArray(item?.value) ? (
+                            <ShapesMenu
+                                item={item}
+                                imageInputRef={imageInputRef}
+                                handleImageUpload={handleImageUpload}
+                                handleActiveElement={handleActiveElement}
+                                activeElement={activeElement} />
+                        ) : item?.value === "comments" ? (
+                            <NewThread>
+                                <Button className="relative w-5 h-5 object-contain">
+                                    <Image
+                                        src={item.icon}
+                                        alt={item.name}
+                                        fill
+                                        className={isActive(item?.value) ? "invert" : ""}
+                                    />
+                                </Button>
+                            </NewThread>
+                        ) : (
                             <Button className="relative w-5 h-5 object-contain">
                                 <Image
                                     src={item.icon}
                                     alt={item.name}
                                     fill
-                                    className={isActive(item?.value) ? "invert" : ""}
+                                    className={isActive(item.value) ? "invert" : ""}
                                 />
                             </Button>
-                        </NewThread>
-                    ) : (
-                        <Button className="relative w-5 h-5 object-contain">
-                            <Image
-                                src={item.icon}
-                                alt={item.name}
-                                fill
-                                className={isActive(item.value) ? "invert" : ""}
-                            />
-                        </Button>
-                    )}
-                </li>
-            ))
-            }
+                        )}
+                    </li>
+                ))}
+            </ul>
 
-            <ActiveUsers /> 
+            <div className="flex flex-1 justify-end items-cente pr-5">
+            <ActiveUsers />
+            </div>
         </nav >
     );
 };

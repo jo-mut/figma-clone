@@ -12,7 +12,7 @@ import {
     ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 import { shortcuts } from '../../constants';
-import ReactionSelector from './reaction/ReactionButton';
+import ReactionSelector from './reaction/ReactionSelector';
 import FlyingReaction from './reaction/FlyingReaction';
 
 
